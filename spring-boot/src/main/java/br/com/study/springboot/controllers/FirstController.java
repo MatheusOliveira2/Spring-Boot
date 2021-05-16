@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FirstController {
-	
-	@RequestMapping(method = RequestMethod.GET)
+
+	@RequestMapping(method = RequestMethod.GET, path = "/hello")
 	public String hello() {
 		return "Hello Spring boot";
 	}
