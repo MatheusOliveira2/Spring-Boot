@@ -1,15 +1,14 @@
 package br.com.study.springboot.controllers;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.study.springboot.model.entities.Product;
@@ -23,6 +22,7 @@ public class ProductController {
 	private ProductRepository productRepository;
 
 	@PostMapping
+	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
 	public Product newProduct(@Valid Product product) {
 		productRepository.save(product);
 		return product;
@@ -38,4 +38,11 @@ public class ProductController {
 		return productRepository.findById(id);
 	}
 	
+	/*
+	@PutMapping
+	public Product updateProduct(@Valid Product product) {
+		productRepository.save(product);
+		return product;
+	}
+	*/
 }

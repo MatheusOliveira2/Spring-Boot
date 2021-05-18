@@ -23,7 +23,7 @@ public class Product {
 	
 	
 	@Min(0)
-	@Max(0)
+	@Max(1)
 	private Double discount;
 
 	public Product() {
