@@ -1,4 +1,4 @@
-package br.com.study.springboot.models;
+package br.com.study.springboot.model.entities;
 
 public class Client {
 	private int id;
