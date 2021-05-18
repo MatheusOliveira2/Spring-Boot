@@ -1,9 +1,9 @@
 package br.com.study.springboot.controllers;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.study.springboot.model.entities.Product;
@@ -17,8 +17,7 @@ public class ProductController {
 	private ProductRepository productRepository;
 
 	@PostMapping
-	public Product newProduct(@RequestParam String name,@RequestParam Double price, @RequestParam Double discount) {
-		Product product = new Product(name, price, discount);
+	public Product newProduct(@Valid Product product) {
 		productRepository.save(product);
 		return product;
 	}
