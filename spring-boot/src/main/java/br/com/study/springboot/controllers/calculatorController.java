@@ -17,6 +17,6 @@ public class calculatorController {
 	
 	@GetMapping(path = "/sub")
 	public double sub(@RequestParam(name = "a") int a,@RequestParam(name = "b") int b) {
-		return a + b;
+		return a - b;
 	}
 }
