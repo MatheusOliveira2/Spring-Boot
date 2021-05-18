@@ -12,14 +12,43 @@ public class Product {
 	private int id;
 
 	private String name;
+	
+	private Double price;
+	
+	private Double discount;
 
 	public Product() {
 		super();
 	}
+	
 
 	public Product(String name) {
 		super();
 		this.name = name;
+	}
+	
+	public Product(String name, Double price, Double disocunt) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.discount = disocunt;
+	}
+
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(Double discount) {
+		this.discount = discount;
 	}
 
 	public int getId() {
