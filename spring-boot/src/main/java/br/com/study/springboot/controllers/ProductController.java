@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +21,6 @@ public class ProductController {
 	@Autowired
 	private ProductRepository productRepository;
 
-	@PostMapping
 	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
 	public Product newProduct(@Valid Product product) {
 		productRepository.save(product);
@@ -38,6 +37,10 @@ public class ProductController {
 		return productRepository.findById(id);
 	}
 	
+	@DeleteMapping(path="/{id}")
+	public void deleteProduct(@PathVariable int id){
+		productRepository.deleteById(id);
+	}
 	/*
 	@PutMapping
 	public Product updateProduct(@Valid Product product) {
