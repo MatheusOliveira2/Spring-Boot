@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.study.springboot.model.entities.Product;
@@ -32,6 +33,11 @@ public class ProductController {
 	@GetMapping
 	public Iterable<Product> getProducts() {
 		return productRepository.findAll();
+	}
+	
+	@GetMapping(path="/name")
+	public Iterable<Product> getProductsByName(@RequestParam(name = "name") String name) {
+		return productRepository.findByNameContaining(name);
 	}
 	
 	@GetMapping(path="/page/{pageNumber}")

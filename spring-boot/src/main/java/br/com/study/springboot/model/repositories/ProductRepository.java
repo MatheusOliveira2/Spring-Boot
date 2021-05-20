@@ -7,4 +7,6 @@ import br.com.study.springboot.model.entities.Product;
 //public interface ProductRepository extends CrudRepository<Product, Integer>  {
 public interface ProductRepository extends PagingAndSortingRepository<Product, Integer> {
 	
+	
+	public Iterable<Product> findByNameContaining(String name);
 }
